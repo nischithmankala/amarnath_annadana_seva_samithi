@@ -1,0 +1,7 @@
+$ eslint src/
+
+D:\amarnath_annadana_seva_samithi\packages\contracts\src\errors\index.ts
+  6:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 1 problem (0 errors, 1 warning)
+

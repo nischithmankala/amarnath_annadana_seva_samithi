@@ -1,0 +1,205 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  PUBLIC
+  MEMBER
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum Status {
+  PENDING
+  APPROVED
+  REJECTED
+  EXPIRED
+}
+
+enum PaymentStatus {
+  SUCCESSFUL
+  PENDING
+  FAILED
+  REFUNDED
+  CANCELLED
+}
+
+enum EventStatus {
+  DRAFT
+  UPCOMING
+  LIVE
+  COMPLETED
+  ARCHIVED
+}
+
+model User {
+  id             String    @id @default(uuid())
+  mobile         String?   @unique
+  email          String?   @unique
+  role           Role      @default(PUBLIC)
+  status         String    @default("active")
+  hashedOtp      String?
+  otpExpiry      DateTime?
+  otpAttempt     Int       @default(0)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  member         Member?
+  auditLogs      AuditLog[]
+}
+
+model Member {
+  id               String    @id @default(uuid())
+  memberId         String    @unique
+  userId           String    @unique
+  user             User      @relation(fields: [userId], references: [id])
+  name             String
+  photoUrl         String?
+  mobile           String?
+  email            String?
+  address          String?
+  city             String?
+  occupation       String?
+  dob              DateTime?
+  dateOfMarriage   DateTime?
+  category         String?
+  fee              Float?
+  validityPeriod   DateTime?
+  status           Status    @default(PENDING)
+  joiningDate      DateTime?
+  consentFlags     Json?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  familyMembers    FamilyMember[]
+  payments         Payment[]
+}
+
+model FamilyMember {
+  id               String    @id @default(uuid())
+  memberId         String
+  member           Member    @relation(fields: [memberId], references: [id])
+  name             String
+  relationship     String
+  dob              DateTime?
+  contactInfo      String?
+  approvedVisible  Boolean   @default(false)
+  photoUrl         String?
+}
+
+model Payment {
+  id               String        @id @default(uuid())
+  transactionRef   String        @unique
+  receiptNumber    String?       @unique
+  amount           Float
+  gatewayRef       String?
+  paymentMethod    String?
+  status           PaymentStatus @default(PENDING)
+  purpose          String?
+  memberId         String?
+  member           Member?       @relation(fields: [memberId], references: [id])
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+  receipts         Receipt[]
+  donations        Donation[]
+  sponsorships     Sponsorship[]
+}
+
+model Receipt {
+  id               String    @id @default(uuid())
+  paymentId        String
+  payment          Payment   @relation(fields: [paymentId], references: [id])
+  receiptNumber    String    @unique
+  generatedAt      DateTime  @default(now())
+  generatedBy      String?
+  reasonForReissue String?
+}
+
+model Donation {
+  id               String    @id @default(uuid())
+  donorName        String
+  mobile           String?
+  email            String?
+  address          String?
+  pan              String?
+  amount           Float
+  campaign         String?
+  paymentId        String
+  payment          Payment   @relation(fields: [paymentId], references: [id])
+  createdAt        DateTime  @default(now())
+}
+
+model Sponsorship {
+  id               String    @id @default(uuid())
+  sponsorDetails   String
+  package          String?
+  amount           Float?
+  consentPublic    Boolean   @default(true)
+  paymentId        String
+  payment          Payment   @relation(fields: [paymentId], references: [id])
+  createdAt        DateTime  @default(now())
+}
+
+model Event {
+  id               String      @id @default(uuid())
+  title            String
+  description      String?
+  dateTime         DateTime
+  location         String?
+  category         String?
+  status           EventStatus @default(DRAFT)
+  registrationRules String?
+  sponsorshipPackages Json?
+  galleryLinks     Json?
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  volunteers       Volunteer[]
+}
+
+model Volunteer {
+  id               String    @id @default(uuid())
+  name             String
+  contact          String
+  skills           String?
+  status           String    @default("submitted")
+  assignedBy       String?
+  eventId          String
+  event            Event     @relation(fields: [eventId], references: [id])
+}
+
+model BoardRecord {
+  id               String    @id @default(uuid())
+  year             Int
+  name             String
+  photoUrl         String?
+  designation      String
+  displayOrder     Int       @default(0)
+  createdAt        DateTime  @default(now())
+}
+
+model MediaAsset {
+  id               String    @id @default(uuid())
+  title            String?
+  caption          String?
+  altText          String?
+  category         String?
+  fileUrl          String
+  fileSize         Int?
+  fileType         String?
+  publishStatus    Boolean   @default(true)
+  displayOrder     Int       @default(0)
+  uploadedBy       String?
+  createdAt        DateTime  @default(now())
+}
+
+model AuditLog {
+  id               String    @id @default(uuid())
+  actorId          String?
+  actor            User?     @relation(fields: [actorId], references: [id])
+  action           String
+  beforeState      Json?
+  afterState       Json?
+  createdAt        DateTime  @default(now())
+}

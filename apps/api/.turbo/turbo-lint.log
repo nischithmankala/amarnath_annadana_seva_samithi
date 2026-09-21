@@ -1,0 +1,9 @@
+$ eslint src/
+
+D:\amarnath_annadana_seva_samithi\apps\api\src\index.ts
+  26:15  warning  Unexpected any. Specify a different type                                @typescript-eslint/no-explicit-any
+  26:49  error    'next' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+
+✖ 2 problems (1 error, 1 warning)
+
+[ELIFECYCLE] Command failed with exit code 1.

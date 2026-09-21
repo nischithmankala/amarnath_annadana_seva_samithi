@@ -1,0 +1,3 @@
+$ tsc --noEmit
+src/index.ts(4,46): error TS2307: Cannot find module '@samithi/contracts' or its corresponding type declarations.
+[ELIFECYCLE] Command failed with exit code 2.
