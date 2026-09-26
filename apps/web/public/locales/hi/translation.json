@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "होम",
+    "donate": "दान करें",
+    "events": "कार्यक्रम",
+    "about": "हमारे बारे में",
+    "board": "कमेटी",
+    "gallery": "गैलरी",
+    "contact": "संपर्क",
+    "login": "लॉगिन",
+    "myPortal": "मेरा पोर्टल",
+    "adminPortal": "एडमिन पोर्टल",
+    "logout": "लॉगआउट",
+    "langLabel": "भाषा"
+  },
+  "lang": {
+    "en": "English",
+    "te": "తెలుగు",
+    "hi": "हिन्दी"
+  },
+  "auth": {
+    "title": "अपने खाते में लॉगिन करें",
+    "subtitle": "सदस्य, एडमिन और सुपर एडमिन यहाँ से लॉगिन करते हैं",
+    "mobileLabel": "मोबाइल नंबर",
+    "emailLabel": "ईमेल पता",
+    "otpLabel": "OTP दर्ज करें",
+    "sendOtp": "OTP भेजें",
+    "verifyOtp": "OTP सत्यापित करें",
+    "resendOtp": "OTP पुनः भेजें",
+    "otpSent": "OTP भेजा गया! अपना {{channel}} जाँचें।",
+    "loggingIn": "सत्यापित कर रहे हैं...",
+    "invalidOtp": "अमान्य OTP। कृपया पुनः प्रयास करें।"
+  },
+  "donate": {
+    "title": "दान करें",
+    "subtitle": "आपका योगदान भगवान अमरनाथ जी के तीर्थयात्रियों को भोजन देता है",
+    "step1Title": "समर्थन चुनें",
+    "step2Title": "आपके विवरण",
+    "step3Title": "भुगतान",
+    "step4Title": "धन्यवाद!",
+    "purposeGeneral": "सामान्य निधि",
+    "purposeAnnadana": "अन्नदान सेवा",
+    "amountLabel": "राशि चुनें या दर्ज करें",
+    "customAmount": "अन्य राशि",
+    "continueBtn": "जारी रखें",
+    "backBtn": "वापस",
+    "fullNameLabel": "पूरा नाम",
+    "mobileLabel": "मोबाइल नंबर",
+    "emailLabel": "ईमेल (रसीद के लिए)",
+    "anonymousLabel": "गुमनाम दान करें",
+    "consentLabel": "मैं गोपनीयता नीति से सहमत हूँ",
+    "payNow": "₹{{amount}} भुगतान करें",
+    "successTitle": "दान की पुष्टि हुई! 🙏",
+    "successMsg": "₹{{amount}} के उदार दान के लिए धन्यवाद। आपकी रसीद संख्या {{receipt}} है।",
+    "downloadReceipt": "रसीद डाउनलोड करें (PDF)",
+    "errors": {
+      "amountRequired": "कृपया राशि चुनें या दर्ज करें",
+      "nameRequired": "कृपया अपना पूरा नाम दर्ज करें",
+      "mobileRequired": "कृपया 10 अंकों का मोबाइल नंबर दर्ज करें",
+      "consentRequired": "जारी रखने के लिए गोपनीयता नीति स्वीकार करें"
+    }
+  },
+  "membership": {
+    "title": "सदस्य बनें",
+    "subtitle": "अमरनाथ अन्नदान सेवा समिति परिवार में शामिल हों",
+    "step1Title": "सदस्यता प्रकार चुनें",
+    "step2Title": "आपके विवरण",
+    "step3Title": "परिवार के विवरण",
+    "step4Title": "समीक्षा और भुगतान",
+    "submitAndPay": "₹{{amount}} भुगतान करें और आवेदन जमा करें"
+  },
+  "portal": {
+    "welcomeBack": "वापस स्वागत है, {{name}}!",
+    "myIdCard": "मेरा ID कार्ड",
+    "myProfile": "मेरी प्रोफ़ाइल",
+    "directory": "सदस्य निर्देशिका",
+    "donationHistory": "दान इतिहास"
+  },
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "error": "कुछ गलत हुआ। कृपया पुनः प्रयास करें।",
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "back": "वापस",
+    "next": "अगला",
+    "submit": "जमा करें",
+    "search": "खोजें",
+    "stepOf": "चरण {{step}} का {{total}}"
+  }
+}
