@@ -1,120 +1,91 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { PublicLayout } from './components/layout/PublicLayout'
+import { PortalLayout } from './components/layout/PortalLayout'
+import { Home } from './pages/public/Home'
+import { Donate } from './pages/public/Donate'
+import { Login } from './features/auth/Login'
+import { MemberDashboard } from './pages/portal/MemberDashboard'
+import { AdminDashboard } from './pages/admin/AdminDashboard'
+import { SuperAdminDashboard } from './pages/admin/SuperAdminDashboard'
+import { useAuthStore } from './store/authStore'
+import { Navigate } from 'react-router-dom'
+
+// Protected Route Guard
+const ProtectedRoute = ({ children, allowedRoles }: { children: React.ReactNode, allowedRoles?: string[] }) => {
+  const { isAuthenticated, user } = useAuthStore()
+  
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />
+  }
+
+  if (allowedRoles && user && !allowedRoles.includes(user.role)) {
+    // If they have a role but it's not allowed for this route, bounce them to their respective default portal
+    if (user.role === 'superadmin') return <Navigate to="/superadmin" replace />
+    if (user.role === 'admin') return <Navigate to="/admin" replace />
+    return <Navigate to="/portal" replace />
+  }
+
+  return <>{children}</>
+}
+
+// Placeholder for other pages
+const Placeholder = ({ title }: { title: string }) => (
+  <div className="flex items-center justify-center h-[50vh]">
+    <h2 className="text-2xl font-serif text-primary-900">{title}</h2>
+  </div>
+)
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <BrowserRouter>
+      <Routes>
+        {/* Public Routes */}
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<Placeholder title="About Samithi" />} />
+          <Route path="/events" element={<Placeholder title="Events" />} />
+          <Route path="/gallery" element={<Placeholder title="Gallery" />} />
+          <Route path="/contact" element={<Placeholder title="Contact Us" />} />
+          <Route path="/donate" element={<Donate />} />
+          <Route path="/join" element={<Placeholder title="Join as Member Flow" />} />
+          <Route path="/volunteer" element={<Placeholder title="Volunteer Flow" />} />
+        </Route>
 
-      <div className="ticks"></div>
+        {/* Auth Routes */}
+        <Route path="/login" element={<Login />} />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        {/* Portal Routes (Member only usually, but admin/superadmin can access their own versions) */}
+        <Route path="/portal" element={
+          <ProtectedRoute allowedRoles={['member']}>
+            <PortalLayout />
+          </ProtectedRoute>
+        }>
+          <Route index element={<MemberDashboard />} />
+          <Route path="profile" element={<Placeholder title="My Profile" />} />
+          <Route path="payments" element={<Placeholder title="My Payments" />} />
+          <Route path="directory" element={<Placeholder title="Member Directory" />} />
+        </Route>
+        
+        {/* Admin Routes */}
+        <Route path="/admin" element={
+          <ProtectedRoute allowedRoles={['admin']}>
+            <PortalLayout />
+          </ProtectedRoute>
+        }>
+          <Route index element={<AdminDashboard />} />
+        </Route>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+        {/* Super Admin Routes */}
+        <Route path="/superadmin" element={
+          <ProtectedRoute allowedRoles={['superadmin']}>
+            <PortalLayout />
+          </ProtectedRoute>
+        }>
+          <Route index element={<SuperAdminDashboard />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

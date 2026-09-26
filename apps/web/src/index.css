@@ -1,10 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  --color-indigo: #273E7A;
-  --color-saffron: #D96D1E;
-  --color-gold: #C99B3D;
-  --color-green: #52735D;
-  --color-sand: #F3E9D3;
-  --color-mist: #E8EEF1;
+  --color-primary-900: #4B2E1E; /* Dark brown */
+  --color-primary-800: #653E28;
+  --color-primary-700: #7F4E32;
+  --color-primary-600: #995E3C;
+  --color-primary-500: #B36E46;
+  
+  --color-saffron-500: #D96D1E;
+  --color-saffron-400: #E2843E;
+  
+  --color-gold-500: #C99B3D;
+  --color-gold-400: #D3AD5D;
+
+  --color-sand-50: #FCFBF8; /* Very light background */
+  --color-sand-100: #F3E9D3; /* Light beige background */
+  --color-sand-200: #E6D2B3;
+  --color-sand-300: #D9BB93;
+
+  --color-surface: #FFFFFF;
+  
+  /* Font Families - Using standard Tailwind syntax for v4 */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", "Outfit", system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-sand-50 text-primary-900 font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
 }
