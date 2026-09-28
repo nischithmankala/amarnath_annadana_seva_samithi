@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { config } from "./config";
 import authRouter from "./routes/auth";
 import membershipsRouter from "./routes/memberships";
+import donationsRouter from "./routes/donations";
 import { errorHandler } from "./middlewares/error";
 import crypto from "crypto";
 
@@ -12,7 +13,7 @@ dotenv.config();
 const app = express();
 const port = config.port;
 
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express.json());
 
 // Request ID middleware
@@ -27,8 +28,9 @@ app.get("/health", (req, res) => {
 });
 
 // Routes
-app.use("/auth", authRouter);
-app.use("/memberships", membershipsRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/memberships", membershipsRouter);
+app.use("/api/donations", donationsRouter);
 
 // Centralized error handling
 app.use(errorHandler);

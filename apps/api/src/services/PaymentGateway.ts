@@ -1,6 +1,6 @@
 export interface IPaymentGateway {
   createOrder(amount: number, receipt: string, purpose: string): Promise<any>;
-  verifySignature(paymentData: any): boolean;
+  verifySignature(orderId: string, paymentId: string, signature: string): boolean;
 }
 
 export class MockPaymentGateway implements IPaymentGateway {
@@ -15,9 +15,9 @@ export class MockPaymentGateway implements IPaymentGateway {
     };
   }
 
-  verifySignature(paymentData: any): boolean {
+  verifySignature(orderId: string, paymentId: string, signature: string): boolean {
     // In a real scenario, verify Razorpay/Stripe signature
-    console.log(`[MockPaymentGateway] Verifying payment signature for`, paymentData);
+    console.log(`[MockPaymentGateway] Verifying payment signature for ${orderId}, ${paymentId}, ${signature}`);
     return true;
   }
 }

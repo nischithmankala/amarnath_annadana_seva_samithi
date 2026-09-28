@@ -42,7 +42,7 @@ export const createDonationIntent = async (req: Request, res: Response) => {
   });
 
   // 3. Generate Gateway Intent
-  const gatewayOrder = await paymentGateway.createOrder(amount, transactionRef);
+  const gatewayOrder = await paymentGateway.createOrder(amount, transactionRef,purpose);
 
   res.status(201).json({
     success: true,
@@ -57,7 +57,7 @@ export const verifyDonationPayment = async (req: Request, res: Response) => {
   const { transactionRef, gatewayPaymentId, gatewaySignature } = req.body;
 
   // In a real scenario, we'd verify the signature here.
-  const isValid = await paymentGateway.verifyPayment(gatewayPaymentId, gatewaySignature);
+  const isValid = await paymentGateway.verifySignature(transactionRef, gatewayPaymentId, gatewaySignature);
 
   if (!isValid) {
     throw new ApiError(400, ErrorCodes.VALIDATION_ERROR, 'Payment verification failed');

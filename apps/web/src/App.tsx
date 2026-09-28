@@ -4,6 +4,9 @@ import { PublicLayout } from './components/layout/PublicLayout'
 import { PortalLayout } from './components/layout/PortalLayout'
 import { Home } from './pages/public/Home'
 import { Donate } from './pages/public/Donate'
+import { About } from './pages/public/About'
+import { Events } from './pages/public/Events'
+import { Gallery } from './pages/public/Gallery'
 import { Login } from './features/auth/Login'
 import { MemberDashboard } from './pages/portal/MemberDashboard'
 import { AdminDashboard } from './pages/admin/AdminDashboard'
@@ -43,9 +46,9 @@ function App() {
         {/* Public Routes */}
         <Route element={<PublicLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<Placeholder title="About Samithi" />} />
-          <Route path="/events" element={<Placeholder title="Events" />} />
-          <Route path="/gallery" element={<Placeholder title="Gallery" />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Placeholder title="Contact Us" />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/join" element={<Placeholder title="Join as Member Flow" />} />
