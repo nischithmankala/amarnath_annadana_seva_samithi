@@ -71,15 +71,15 @@ export const DonationReceipt: React.FC<DonationReceiptProps> = ({
   }
 
   return (
-    <div className={`donation-receipt-outer ${isModal ? 'fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 overflow-y-auto' : 'flex flex-col items-center'}`}>
+    <div className={`donation-receipt-outer ${isModal ? 'fixed inset-0 z-50 flex flex-col items-center bg-black/80 p-4 md:p-8 overflow-y-auto' : 'flex flex-col items-center'}`}>
       
       {/* Top Floating Actions if in modal or standalone */}
-      <div className="no-print mb-4 flex items-center justify-between w-[210mm] max-w-full bg-white p-3 rounded-lg shadow-md border border-amber-300">
+      <div className="no-print mb-4 flex flex-wrap items-center justify-between w-full max-w-[210mm] bg-white p-3 rounded-lg shadow-md border border-amber-300 gap-3 shrink-0">
         <div className="flex items-center gap-2 font-serif font-bold text-emerald-900 text-sm">
           <span>🔱</span>
           <span>Amarnath Annadana Seva Samithi — Donation Receipt</span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 ml-auto">
           <button
             onClick={handlePrint}
             className="cursor-pointer px-4 py-1.5 bg-gradient-to-r from-emerald-800 to-emerald-700 text-white rounded text-sm font-semibold shadow hover:from-emerald-900 hover:to-emerald-800 transition-all flex items-center gap-1.5"
@@ -98,10 +98,12 @@ export const DonationReceipt: React.FC<DonationReceiptProps> = ({
         </div>
       </div>
 
-      {/* Main A4 Printable Document Container */}
-      <div 
-        id="receipt-print-area"
-        className="receipt-a4-sheet relative w-[210mm] h-[297mm] max-h-[297mm] bg-[#fffdf5] text-[#173d2b] shadow-2xl p-[7mm_8mm_6mm_8mm] flex flex-col justify-between overflow-hidden select-text"
+      {/* Responsive wrapper for scrolling on small screens */}
+      <div className="w-full overflow-x-auto flex justify-center pb-8 shrink-0">
+        {/* Main A4 Printable Document Container */}
+        <div 
+          id="receipt-print-area"
+          className="receipt-a4-sheet shrink-0 relative w-[210mm] h-[297mm] max-h-[297mm] bg-[#fffdf5] text-[#173d2b] shadow-2xl p-[7mm_8mm_6mm_8mm] flex flex-col justify-between overflow-hidden select-text"
         style={{
           fontFamily: "'Lora', Georgia, serif",
           backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(255, 250, 235, 0.8) 0%, transparent 75%), linear-gradient(to bottom, #fdfbf5 0%, #fffdf8 40%, #fefcf3 100%)'
@@ -375,6 +377,7 @@ export const DonationReceipt: React.FC<DonationReceiptProps> = ({
           </div>
 
         </div>
+      </div>
       </div>
     </div>
   )

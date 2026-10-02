@@ -23,9 +23,6 @@ export function PublicLayout() {
             <Link to="/about" className="text-sm font-medium text-primary-900 hover:text-saffron-500">About</Link>
             <Link to="/events" className="text-sm font-medium text-primary-900 hover:text-saffron-500">Events</Link>
             <Link to="/gallery" className="text-sm font-medium text-primary-900 hover:text-saffron-500">Gallery</Link>
-            <Link to="/receipt" className="text-sm font-medium text-primary-900 hover:text-saffron-500 flex items-center gap-1">
-              <span>📜</span> Receipts
-            </Link>
             <Link to="/login">
               <Button variant="outline" className="ml-4 border-saffron-500 text-saffron-500 hover:bg-saffron-500 hover:text-white">
                 Member Login
