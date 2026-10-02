@@ -119,6 +119,15 @@ export const verifyOtp = async (req: Request, res: Response) => {
       data: { actorId: user.id, action: 'LOGIN_SUCCESS' }
     });
 
+    // FOR DEVELOPMENT: If role is PUBLIC, upgrade to MEMBER so they can test the portal
+    if (user.role === 'PUBLIC') {
+      await prisma.user.update({
+        where: { id: user.id },
+        data: { role: 'MEMBER' }
+      });
+      user.role = 'MEMBER' as any;
+    }
+
     // Generate JWT
     const token = jwt.sign(
       { userId: user.id, role: user.role },

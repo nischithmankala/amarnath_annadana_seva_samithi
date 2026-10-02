@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useAuthStore } from '../../store/authStore'
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/Card'
-import { User as UserIcon, CreditCard, Calendar, Activity, Download, List } from 'lucide-react'
+import { User as UserIcon, CreditCard, Calendar, Activity, Download, List, Users } from 'lucide-react'
 import { api } from '../../lib/api'
 import { Link } from 'react-router-dom'
+import { DigitalMemberCard } from '../../components/portal/DigitalMemberCard'
 
 export function MemberDashboard() {
   const user = useAuthStore(state => state.user)
@@ -45,72 +46,115 @@ export function MemberDashboard() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-serif font-bold text-primary-900">Welcome, {member.name}</h2>
-        <span className={`px-3 py-1 rounded-full text-xs font-bold ${member.status === 'APPROVED' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
-          {member.status}
-        </span>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Membership Status Card */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Member ID</CardTitle>
-            <UserIcon className="h-4 w-4 text-saffron-500" />
+            <CardTitle className="text-md font-bold">Membership Status</CardTitle>
+            <UserIcon className="h-5 w-5 text-saffron-500" />
           </CardHeader>
-          <CardContent>
-            <div className="text-xl font-bold text-primary-900">{member.memberId || 'Pending'}</div>
-            <p className="text-xs text-primary-700 mt-1">{member.category || 'Member'}</p>
-          </CardContent>
-        </Card>
-        
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Paid</CardTitle>
-            <CreditCard className="h-4 w-4 text-saffron-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-xl font-bold text-primary-900">₹{paymentSummary.totalPaid.toLocaleString()}</div>
-            <p className="text-xs text-primary-700 mt-1">{paymentSummary.successfulCount} successful transactions</p>
+          <CardContent className="space-y-2 mt-2">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-500">Member ID:</span>
+              <span className="font-bold text-primary-900">{member.memberId || 'Pending'}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-500">Status:</span>
+              <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${member.status === 'APPROVED' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
+                {member.status}
+              </span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-500">Joining Date:</span>
+              <span className="font-medium text-primary-900">{member.joiningDate ? new Date(member.joiningDate).toLocaleDateString() : 'Pending'}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-500">Category:</span>
+              <span className="font-medium text-primary-900">{member.category || 'Life Member'}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-500">Validity:</span>
+              <span className="font-medium text-primary-900">Lifetime</span>
+            </div>
           </CardContent>
         </Card>
 
+        {/* Payment Summary */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Joining Date</CardTitle>
-            <Calendar className="h-4 w-4 text-saffron-500" />
+            <CardTitle className="text-md font-bold">Payment Summary</CardTitle>
+            <CreditCard className="h-5 w-5 text-saffron-500" />
           </CardHeader>
-          <CardContent>
-            <div className="text-lg font-bold text-primary-900">
-              {member.joiningDate ? new Date(member.joiningDate).toLocaleDateString() : 'Pending'}
+          <CardContent className="space-y-3 mt-2">
+            <div className="flex justify-between text-sm border-b pb-2">
+              <span className="text-gray-500">Total Paid:</span>
+              <span className="font-bold text-primary-900">₹{paymentSummary.totalPaid?.toLocaleString() || '0'}</span>
+            </div>
+            {recentTransactions && recentTransactions[0] ? (
+              <div className="space-y-1">
+                <div className="text-xs text-gray-500 uppercase font-bold">Latest Payment</div>
+                <div className="flex justify-between text-sm">
+                  <span>₹{recentTransactions[0].amount}</span>
+                  <span className="text-green-600 font-medium">{recentTransactions[0].status}</span>
+                </div>
+                <div className="flex justify-between text-xs text-gray-500">
+                  <span>{recentTransactions[0].receiptNumber || 'No Receipt'}</span>
+                  <span>{new Date(recentTransactions[0].createdAt).toLocaleDateString()}</span>
+                </div>
+              </div>
+            ) : (
+              <div className="text-sm text-gray-500">No recent payments</div>
+            )}
+            <Link to="/portal/payments" className="block text-center text-sm text-saffron-600 hover:text-saffron-700 font-medium mt-2">
+              View All Receipts →
+            </Link>
+          </CardContent>
+        </Card>
+        
+        {/* Profile Card */}
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-md font-bold">My Profile</CardTitle>
+            <UserIcon className="h-5 w-5 text-saffron-500" />
+          </CardHeader>
+          <CardContent className="space-y-3 mt-2 flex flex-col h-[calc(100%-3rem)]">
+            <div className="flex items-center space-x-3 mb-2">
+              <div className="w-12 h-12 bg-saffron-100 text-saffron-600 rounded-full flex items-center justify-center font-bold text-lg">
+                {member.name.charAt(0)}
+              </div>
+              <div>
+                <p className="font-bold text-primary-900">{member.name}</p>
+                <p className="text-xs text-gray-500">{user?.phone}</p>
+              </div>
+            </div>
+            <div className="mt-auto space-y-2 pt-4">
+              <Link to="/portal/profile" className="block w-full text-center py-2 bg-sand-100 hover:bg-sand-200 text-primary-800 rounded-md text-sm font-medium transition-colors">
+                View Full Profile
+              </Link>
+              <Link to="/portal/profile?edit=true" className="block w-full text-center py-2 bg-white border border-sand-300 hover:bg-sand-50 text-primary-700 rounded-md text-sm font-medium transition-colors">
+                Request Profile Update
+              </Link>
             </div>
           </CardContent>
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>Digital ID Card</CardTitle>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Virtual Membership Card */}
+        <Card className="md:col-span-2">
+          <CardHeader className="flex flex-row items-center justify-between">
+            <CardTitle className="text-md font-bold">Virtual Membership Card</CardTitle>
+            <Link to="/portal/card" className="text-sm text-saffron-600 hover:text-saffron-700 font-medium">
+              View Full Card →
+            </Link>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex justify-center bg-sand-50 py-4 rounded-b-lg border-t border-sand-100">
             {member.status === 'APPROVED' ? (
-              <div className="w-full max-w-sm h-48 bg-gradient-to-br from-primary-900 to-primary-700 rounded-xl p-6 text-sand-50 relative overflow-hidden shadow-lg border border-primary-600">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-saffron-500/20 rounded-full blur-2xl -mr-10 -mt-10"></div>
-                <div className="flex justify-between items-start relative z-10">
-                  <div>
-                    <h4 className="font-serif font-bold text-saffron-400">AMARNATH SEVA SAMITHI</h4>
-                    <p className="text-xs text-sand-100/80">{member.category || 'Life Member'}</p>
-                  </div>
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center font-bold">
-                    {member.name.charAt(0)}
-                  </div>
-                </div>
-                <div className="mt-8 relative z-10">
-                  <p className="font-bold text-xl">{member.name}</p>
-                  <p className="text-sm font-mono text-sand-100/80">{member.memberId}</p>
-                </div>
-              </div>
+              <DigitalMemberCard profile={member} className="max-w-md transform scale-90 sm:scale-100 origin-top" />
             ) : (
-              <div className="p-8 text-center bg-gray-50 rounded-lg border border-dashed border-gray-300">
+              <div className="p-8 text-center bg-gray-50 rounded-lg border border-dashed border-gray-300 w-full max-w-md">
                 <Activity className="h-8 w-8 text-gray-400 mx-auto mb-2" />
                 <p className="text-sm text-gray-500">ID card will be available once membership is approved.</p>
               </div>
@@ -118,38 +162,37 @@ export function MemberDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>Recent Transactions</CardTitle>
-            <Link to="/portal/transactions" className="text-sm text-primary-600 hover:underline flex items-center gap-1">
-              <List className="h-4 w-4" /> View All
-            </Link>
-          </CardHeader>
-          <CardContent>
-            {recentTransactions && recentTransactions.length > 0 ? (
-              <div className="space-y-4">
-                {recentTransactions.map((tx: any) => (
-                  <div key={tx.id} className="flex justify-between items-center p-3 border rounded-lg">
-                    <div>
-                      <p className="font-medium text-sm">{tx.purpose}</p>
-                      <p className="text-xs text-gray-500">{new Date(tx.createdAt).toLocaleDateString()}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-bold text-primary-700">₹{tx.amount}</p>
-                      <span className={`text-[10px] px-2 py-0.5 rounded-full ${tx.status === 'SUCCESSFUL' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'}`}>
-                        {tx.status}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-6 text-gray-500 text-sm">
-                No transactions found.
-              </div>
-            )}
-          </CardContent>
-        </Card>
+        <div className="space-y-6">
+          {/* Family Members Card */}
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-md font-bold">Family Members</CardTitle>
+              <Users className="h-5 w-5 text-saffron-500" />
+            </CardHeader>
+            <CardContent className="mt-2 text-center py-4">
+              <div className="text-3xl font-bold text-primary-900 mb-1">{data?.familyMembersCount || 0}</div>
+              <p className="text-sm text-gray-500 mb-4">Registered Members</p>
+              <Link to="/portal/family" className="inline-block w-full text-center py-2 bg-sand-100 hover:bg-sand-200 text-primary-800 rounded-md text-sm font-medium transition-colors">
+                View Family →
+              </Link>
+            </CardContent>
+          </Card>
+
+          {/* Upcoming Events Card */}
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-md font-bold">Upcoming Events</CardTitle>
+              <Calendar className="h-5 w-5 text-saffron-500" />
+            </CardHeader>
+            <CardContent className="mt-2 text-center py-4">
+              <div className="text-3xl font-bold text-primary-900 mb-1">{data?.upcomingEventsCount || 0}</div>
+              <p className="text-sm text-gray-500 mb-4">Events Scheduled</p>
+              <Link to="/portal/events" className="inline-block w-full text-center py-2 bg-sand-100 hover:bg-sand-200 text-primary-800 rounded-md text-sm font-medium transition-colors">
+                View Events →
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   )

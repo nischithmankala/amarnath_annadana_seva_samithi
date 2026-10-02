@@ -1,0 +1,269 @@
+2026-10-02T13:47:16.105273Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\cookies"), AnchoredSystemPathBuf(".turbo\\cookies\\1.cookie")}
+2026-10-02T13:47:16.105324Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T13:47:16.219903Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\cookies"), AnchoredSystemPathBuf(".turbo\\cookies\\.turbo-cookie"), AnchoredSystemPathBuf(".turbo\\cookies\\1.cookie")}
+2026-10-02T13:47:16.220076Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T13:47:16.263123Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2026-10-02T13:47:16.806993Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T13:47:16.807062Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T13:47:17.910792Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\contracts"), AnchoredSystemPathBuf("apps\\api\\_tmp_10472_33a218d0"), AnchoredSystemPathBuf("apps\\web\\_tmp_31156_339eaefc"), AnchoredSystemPathBuf("packages\\contracts\\_tmp_26904_32f96294"), AnchoredSystemPathBuf("apps\\api"), AnchoredSystemPathBuf("packages\\contracts\\_tmp_26904_3398bc54"), AnchoredSystemPathBuf("apps\\web"), AnchoredSystemPathBuf("apps\\web\\_tmp_31156_32f923b0"), AnchoredSystemPathBuf("apps\\api\\_tmp_10472_32fb0a04")}
+2026-10-02T13:47:17.910821Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/contracts"), path: AnchoredSystemPathBuf("packages\\contracts") }, WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }, WorkspacePackage { name: Other("@samithi/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2026-10-02T13:47:18.317892Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\cookies"), AnchoredSystemPathBuf(".turbo"), AnchoredSystemPathBuf(".turbo\\daemon")}
+2026-10-02T13:47:18.317966Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T13:47:22.005546Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\contracts\\dist\\errors\\index.js")}
+2026-10-02T13:47:22.005573Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/contracts"), path: AnchoredSystemPathBuf("packages\\contracts") }}))
+2026-10-02T13:47:22.349145Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T13:47:22.349419Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\contracts\\dist\\errors\\index.d.ts"), AnchoredSystemPathBuf("packages\\contracts\\dist\\types\\index.js"), AnchoredSystemPathBuf("packages\\contracts\\dist\\index.d.ts"), AnchoredSystemPathBuf("packages\\contracts\\dist\\types\\index.d.ts"), AnchoredSystemPathBuf("packages\\contracts\\dist\\index.js")}
+2026-10-02T13:47:22.349440Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/contracts"), path: AnchoredSystemPathBuf("packages\\contracts") }}))
+2026-10-02T13:47:22.349493Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T13:57:41.336560Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\cookies\\1.cookie"), AnchoredSystemPathBuf(".turbo\\cookies"), AnchoredSystemPathBuf(".turbo\\cookies\\.turbo-cookie")}
+2026-10-02T13:57:41.336615Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T13:57:41.462254Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2026-10-02T13:57:41.923380Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\_tmp_9564_33a8bc6c"), AnchoredSystemPathBuf("apps\\web\\_tmp_9564_331d4420"), AnchoredSystemPathBuf("apps\\api\\_tmp_24660_33276fa4"), AnchoredSystemPathBuf("packages\\contracts"), AnchoredSystemPathBuf("apps\\api"), AnchoredSystemPathBuf("packages\\contracts\\_tmp_33508_33b8f460"), AnchoredSystemPathBuf("apps\\api\\_tmp_24660_33c86cec"), AnchoredSystemPathBuf("apps\\web"), AnchoredSystemPathBuf("packages\\contracts\\_tmp_33508_3306b458")}
+2026-10-02T13:57:41.923417Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }, WorkspacePackage { name: Other("@samithi/api"), path: AnchoredSystemPathBuf("apps\\api") }, WorkspacePackage { name: Other("@samithi/contracts"), path: AnchoredSystemPathBuf("packages\\contracts") }}))
+2026-10-02T13:57:42.110831Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T13:57:42.110854Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T13:57:45.383893Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo")}
+2026-10-02T13:57:45.383921Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T13:57:45.480228Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\cookies")}
+2026-10-02T13:57:45.480260Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T13:57:47.533685Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\contracts\\dist\\errors\\index.d.ts"), AnchoredSystemPathBuf("packages\\contracts\\dist\\errors\\index.js")}
+2026-10-02T13:57:47.533729Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/contracts"), path: AnchoredSystemPathBuf("packages\\contracts") }}))
+2026-10-02T13:57:48.125876Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T13:57:48.126297Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\contracts\\dist\\types\\index.js"), AnchoredSystemPathBuf("packages\\contracts\\dist\\index.d.ts"), AnchoredSystemPathBuf("packages\\contracts\\dist\\index.js"), AnchoredSystemPathBuf("packages\\contracts\\dist\\types\\index.d.ts")}
+2026-10-02T13:57:48.126413Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/contracts"), path: AnchoredSystemPathBuf("packages\\contracts") }}))
+2026-10-02T13:57:48.126499Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T14:39:03.418442Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\features\\auth\\api.ts")}
+2026-10-02T14:39:03.418480Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T15:37:37.720547Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:37.720581Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:37.822782Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:37.822822Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:37.924032Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:37.924051Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:38.016638Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:38.016670Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:38.125124Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:38.125179Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:38.219994Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:38.220034Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:38.331737Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:38.331763Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:38.527402Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:38.527420Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:38.620496Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:38.620525Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:38.728385Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:38.728408Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:38.915360Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:38.915395Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:39.025318Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:39.025352Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:39.323208Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:39.323233Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:37:51.727132Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T15:37:51.727152Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T15:40:31.726986Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\components\\layout\\PortalLayout.tsx")}
+2026-10-02T15:40:31.727075Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T15:41:06.925632Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MemberDashboard.tsx")}
+2026-10-02T15:41:06.925676Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T15:41:37.120242Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MyProfile.tsx"), AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal")}
+2026-10-02T15:41:37.120271Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T15:42:05.620477Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T15:42:05.620509Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T15:44:12.128165Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\features\\auth\\Login.tsx")}
+2026-10-02T15:44:12.128206Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T15:44:13.725733Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\features\\auth\\Login.tsx")}
+2026-10-02T15:44:13.725773Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T15:44:19.524914Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\features\\auth\\Login.tsx")}
+2026-10-02T15:44:19.524944Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T15:44:21.722708Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\features\\auth\\Login.tsx")}
+2026-10-02T15:44:21.722736Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T15:46:10.426157Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MemberDashboard.tsx")}
+2026-10-02T15:46:10.426192Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T15:51:47.820257Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T15:51:47.820298Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T15:52:16.519633Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\controllers\\member.ts")}
+2026-10-02T15:52:16.519660Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2026-10-02T15:52:29.620887Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\controllers\\auth.ts")}
+2026-10-02T15:52:29.620921Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2026-10-02T15:59:04.616374Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T15:59:04.616418Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T15:59:08.131497Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T15:59:08.131527Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:00:44.229267Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\features\\auth\\Login.tsx")}
+2026-10-02T16:00:44.229367Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:00:44.379204Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\features\\auth\\Login.tsx")}
+2026-10-02T16:00:44.379230Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:00:44.379352Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T16:02:37.321018Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\controllers\\member.ts")}
+2026-10-02T16:02:37.321049Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2026-10-02T16:10:16.622013Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal"), AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\FamilyMembers.tsx")}
+2026-10-02T16:10:16.622105Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:10:38.137593Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:10:38.137621Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:10:38.314893Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal"), AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:10:38.314924Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:10:38.315213Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T16:10:47.514974Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T16:10:47.515006Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:10:55.922835Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T16:10:55.922875Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:13:17.617713Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:13:17.617744Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:14:04.417952Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:14:04.417981Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:14:08.732388Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:14:08.732415Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:14:13.925630Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:14:13.925745Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:14:15.729969Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:14:15.730006Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:14:18.125343Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:14:18.125383Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:14:19.319135Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:14:19.319161Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:14:21.925270Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:14:21.925298Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:14:23.620623Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:14:23.620649Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:19:10.129662Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\public\\card-bg.jpg"), AnchoredSystemPathBuf("apps\\web\\public")}
+2026-10-02T16:19:10.129700Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:19:25.626540Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\components\\portal")}
+2026-10-02T16:19:25.626739Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:19:25.850732Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\components\\portal"), AnchoredSystemPathBuf("apps\\web\\src\\components"), AnchoredSystemPathBuf("apps\\web\\src\\components\\portal\\DigitalMemberCard.tsx")}
+2026-10-02T16:19:25.850793Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:19:25.850933Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T16:19:59.717855Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:19:59.717889Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:20:18.528796Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:20:18.528826Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:20:37.226293Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MemberDashboard.tsx")}
+2026-10-02T16:20:37.226332Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:20:48.130671Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MemberDashboard.tsx")}
+2026-10-02T16:20:48.130712Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:21:04.626816Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MemberDashboard.tsx")}
+2026-10-02T16:21:04.627069Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:23:35.929105Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\public\\card-bg.jpg")}
+2026-10-02T16:23:35.929602Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:23:48.934851Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\components\\portal\\DigitalMemberCard.tsx")}
+2026-10-02T16:23:48.934877Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:26:42.723125Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:26:42.723295Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:27:14.426819Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\_tmp_732_1476cdfc"), AnchoredSystemPathBuf("apps\\web"), AnchoredSystemPathBuf("apps\\web\\_tmp_732_13c98764")}
+2026-10-02T16:27:14.426897Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:27:14.512826Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T16:27:40.282908Z  WARN turborepo_filewatch::package_watcher: lagged behind 135 processing file watching events
+2026-10-02T16:27:45.884628Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".pnpm-lock.yaml.732.0.tmp")}
+2026-10-02T16:27:45.884663Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:27:45.964894Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf(".pnpm-lock.yaml.732.0.tmp"), AnchoredSystemPathBuf("")}
+2026-10-02T16:27:45.964912Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:27:46.441946Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\.tmpkM2hrH"), AnchoredSystemPathBuf("apps\\web\\package.json"), AnchoredSystemPathBuf("apps\\web"), AnchoredSystemPathBuf(""), AnchoredSystemPathBuf(".tmpG8zS5c"), AnchoredSystemPathBuf("pnpm-workspace.yaml")}
+2026-10-02T16:27:46.442031Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }, WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:29:41.920066Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web"), AnchoredSystemPathBuf("apps\\web\\_tmp_21088_34a4e0dc"), AnchoredSystemPathBuf("apps\\web\\_tmp_21088_351ec2d0")}
+2026-10-02T16:29:41.920092Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:29:55.516619Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_21776_1e475e00"), AnchoredSystemPathBuf("_tmp_21776_1ec4a4b4"), AnchoredSystemPathBuf("")}
+2026-10-02T16:29:55.516645Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:29:55.626040Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_21776_1ec4a4b4")}
+2026-10-02T16:29:55.626072Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:30:11.117412Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_25240_06ba1778"), AnchoredSystemPathBuf("")}
+2026-10-02T16:30:11.117439Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:30:11.221426Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_28056_0b79d1a4"), AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_25240_07456ef4"), AnchoredSystemPathBuf("_tmp_28056_0bffeaf0")}
+2026-10-02T16:30:11.221466Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:30:11.328630Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2026-10-02T16:30:11.328654Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2026-10-02T16:30:11.726919Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_29848_293864e4"), AnchoredSystemPathBuf("_tmp_29848_29b1ceec"), AnchoredSystemPathBuf("")}
+2026-10-02T16:30:11.726960Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:31:26.318328Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_20072_12698360"), AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_20072_12f1d314")}
+2026-10-02T16:31:26.318359Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:31:26.418433Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_20072_12f1d314")}
+2026-10-02T16:31:26.418457Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:31:27.227741Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2026-10-02T16:31:27.227767Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2026-10-02T16:31:30.925866Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf(""), AnchoredSystemPathBuf(".pnpm-lock.yaml.20072.0.tmp")}
+2026-10-02T16:31:30.925897Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:31:31.249903Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\.tmpUfWGWQ"), AnchoredSystemPathBuf("apps\\web\\package.json"), AnchoredSystemPathBuf("apps\\web")}
+2026-10-02T16:31:31.249949Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:32:04.115434Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_30820_04537f88"), AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_30820_04c6e874")}
+2026-10-02T16:32:04.115458Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:32:04.244524Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_18632_09ebbf00")}
+2026-10-02T16:32:04.244563Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:32:04.316253Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_18632_107753d4")}
+2026-10-02T16:32:04.316294Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:32:04.422696Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2026-10-02T16:32:04.422719Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2026-10-02T16:32:04.716316Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_35156_2aaa3078"), AnchoredSystemPathBuf("_tmp_35156_2a2a4e30")}
+2026-10-02T16:32:04.716339Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:32:04.825699Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_35156_2aaa3078")}
+2026-10-02T16:32:04.825822Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:32:33.385038Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\cookies\\1.cookie"), AnchoredSystemPathBuf(".turbo\\cookies"), AnchoredSystemPathBuf(".turbo\\cookies\\.turbo-cookie")}
+2026-10-02T16:32:33.385093Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:32:33.461394Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2026-10-02T16:32:33.970476Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web"), AnchoredSystemPathBuf("apps\\api\\_tmp_16316_39906d64"), AnchoredSystemPathBuf("apps\\web\\_tmp_30376_39cee5f8"), AnchoredSystemPathBuf("apps\\web\\_tmp_30376_3925a1f0"), AnchoredSystemPathBuf("packages\\contracts"), AnchoredSystemPathBuf("packages\\contracts\\_tmp_29924_39647d58")}
+2026-10-02T16:32:33.970507Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/api"), path: AnchoredSystemPathBuf("apps\\api") }, WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }, WorkspacePackage { name: Other("@samithi/contracts"), path: AnchoredSystemPathBuf("packages\\contracts") }}))
+2026-10-02T16:32:34.236032Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\_tmp_30376_39cee5f8"), AnchoredSystemPathBuf("apps\\api\\_tmp_16316_3a38ba28"), AnchoredSystemPathBuf("apps\\web"), AnchoredSystemPathBuf("apps\\api"), AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02"), AnchoredSystemPathBuf("packages\\contracts\\_tmp_29924_3a143b30"), AnchoredSystemPathBuf("packages\\contracts")}
+2026-10-02T16:32:34.236062Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/api"), path: AnchoredSystemPathBuf("apps\\api") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }, WorkspacePackage { name: Other("@samithi/contracts"), path: AnchoredSystemPathBuf("packages\\contracts") }, WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:32:34.236159Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T16:32:34.236230Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T16:32:34.236318Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T16:32:34.582752Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo")}
+2026-10-02T16:32:34.582794Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:32:36.079520Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\contracts\\dist\\types\\index.js"), AnchoredSystemPathBuf("packages\\contracts\\dist\\errors\\index.d.ts"), AnchoredSystemPathBuf("packages\\contracts\\dist\\index.d.ts"), AnchoredSystemPathBuf("packages\\contracts\\dist\\errors\\index.js"), AnchoredSystemPathBuf("packages\\contracts\\dist\\types\\index.d.ts"), AnchoredSystemPathBuf("packages\\contracts\\dist\\index.js")}
+2026-10-02T16:32:36.079558Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/contracts"), path: AnchoredSystemPathBuf("packages\\contracts") }}))
+2026-10-02T16:32:36.235738Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T16:32:37.473724Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\cookies")}
+2026-10-02T16:32:37.473744Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:34:02.075542Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_32804_3a834f84"), AnchoredSystemPathBuf("_tmp_32804_3af9bb24"), AnchoredSystemPathBuf("")}
+2026-10-02T16:34:02.075631Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:34:02.169014Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_752_0562ab10"), AnchoredSystemPathBuf("_tmp_752_04c0ed34"), AnchoredSystemPathBuf("")}
+2026-10-02T16:34:02.169046Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:34:03.082862Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2026-10-02T16:34:03.082888Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2026-10-02T16:34:04.668796Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf(".pnpm-lock.yaml.752.0.tmp")}
+2026-10-02T16:34:04.668825Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:34:04.878067Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\.tmpWZk6xY"), AnchoredSystemPathBuf("apps\\web\\package.json"), AnchoredSystemPathBuf("apps\\web")}
+2026-10-02T16:34:04.878093Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:34:05.283777Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_21760_0cf9ae00"), AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_21760_0c779a64")}
+2026-10-02T16:34:05.283808Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:34:19.272541Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\MembershipCard.tsx")}
+2026-10-02T16:34:19.272566Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:35:44.471133Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal"), AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\Events.tsx")}
+2026-10-02T16:35:44.471193Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:35:55.384667Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T16:35:55.384715Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:36:06.977208Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T16:36:06.977271Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:36:17.270321Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T16:36:17.270355Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:37:31.882342Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T16:37:31.882425Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:38:23.880964Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T16:38:23.880997Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:38:26.773804Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\b98a45ba77c42c41-turbo.log.2026-10-02")}
+2026-10-02T16:38:26.773831Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-10-02T16:39:47.974177Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal"), AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\Volunteer.tsx")}
+2026-10-02T16:39:47.974207Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:39:59.379084Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T16:39:59.379119Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:40:10.879489Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T16:40:10.879531Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:42:49.183385Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\ChangeMobile.tsx")}
+2026-10-02T16:42:49.183430Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:42:49.338601Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal"), AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\ChangeMobile.tsx")}
+2026-10-02T16:42:49.338621Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:42:49.338694Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-10-02T16:43:01.868869Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\ChangeMobile.tsx")}
+2026-10-02T16:43:01.868898Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:43:24.888752Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal"), AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\Notifications.tsx")}
+2026-10-02T16:43:24.888780Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:43:37.877623Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T16:43:37.877648Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:43:50.182496Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T16:43:50.182520Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:45:36.577658Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal"), AnchoredSystemPathBuf("apps\\web\\src\\pages\\portal\\HelpContact.tsx")}
+2026-10-02T16:45:36.577701Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:45:48.888322Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T16:45:48.888349Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:46:00.172933Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\src\\App.tsx")}
+2026-10-02T16:46:00.172964Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2026-10-02T16:54:05.979334Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\routes\\member.ts")}
+2026-10-02T16:54:05.979372Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@samithi/api"), path: AnchoredSystemPathBuf("apps\\api") }}))

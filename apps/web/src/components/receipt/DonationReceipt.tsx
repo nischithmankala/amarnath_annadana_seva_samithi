@@ -166,7 +166,7 @@ export const DonationReceipt: React.FC<DonationReceiptProps> = ({
               <div className="relative p-[2.8mm_3mm_2.8mm_3mm] grid grid-cols-[36mm_1fr_28mm] items-center gap-[2mm] bg-transparent">
                 {/* Left Logo */}
                 <div className="flex justify-center items-center bg-transparent">
-                  <img src="/logo.png" alt="Amarnath Annadana Seva Samithi" className="w-[35mm] h-[35mm] object-contain drop-shadow" />
+                  <img src="/logo.png" alt="Amarnath Annadana Seva Samithi" className="w-[35mm] h-[35mm] object-contain drop-shadow mix-blend-multiply" />
                 </div>
 
                 {/* Center Title & Address */}
@@ -366,14 +366,7 @@ export const DonationReceipt: React.FC<DonationReceiptProps> = ({
               <span className="font-semibold text-[#5a3508]">All donations are exempt under 80G of Income Tax Act.</span>
             </div>
 
-            {/* Bottom Pooja Lamp & Annadanam Prasad Bowl Image */}
-            <div className="relative w-full h-[34mm] rounded overflow-hidden">
-              <img 
-                src="/footer-bg.jpg" 
-                alt="Pooja Diya and Annadanam Mahaprasadam Rice" 
-                className="w-full h-full object-cover object-bottom"
-              />
-            </div>
+
           </div>
 
         </div>

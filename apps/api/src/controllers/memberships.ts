@@ -17,10 +17,40 @@ export const createMembershipIntent = async (req: Request, res: Response) => {
       }
     });
 
+    const existingMember = await prisma.member.findUnique({ where: { userId: user.id } });
+    
+    if (existingMember && existingMember.status === 'APPROVED') {
+      res.status(400).json({ success: false, error: { message: 'A membership already exists for this mobile number.' } });
+      return;
+    }
+
+    const familyMembersData = familyMembers && Array.isArray(familyMembers) 
+      ? familyMembers
+          .filter((fm: any) => fm.name && fm.relationship)
+          .map((fm: any) => ({
+            name: fm.name,
+            relationship: fm.relationship,
+            dob: fm.dob ? new Date(fm.dob) : null
+          }))
+      : [];
+
     const tempMemberId = `TEMP-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
 
-    const member = await prisma.member.create({
-      data: {
+    const member = await prisma.member.upsert({
+      where: { userId: user.id },
+      update: {
+        name,
+        email,
+        address,
+        city,
+        category,
+        fee,
+        familyMembers: {
+          deleteMany: {},
+          create: familyMembersData
+        }
+      },
+      create: {
         memberId: tempMemberId,
         userId: user.id,
         name,
@@ -31,15 +61,7 @@ export const createMembershipIntent = async (req: Request, res: Response) => {
         fee,
         status: 'PENDING',
         familyMembers: {
-          create: familyMembers && Array.isArray(familyMembers) 
-            ? familyMembers
-                .filter((fm: any) => fm.name && fm.relationship)
-                .map((fm: any) => ({
-                  name: fm.name,
-                  relationship: fm.relationship,
-                  dob: fm.dob ? new Date(fm.dob) : null
-                }))
-            : []
+          create: familyMembersData
         }
       }
     });

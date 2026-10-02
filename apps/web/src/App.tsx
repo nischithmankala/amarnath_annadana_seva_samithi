@@ -5,10 +5,17 @@ import { PortalLayout } from './components/layout/PortalLayout'
 import { Home } from './pages/public/Home'
 import { Donate } from './pages/public/Donate'
 import { About } from './pages/public/About'
-import { Events } from './pages/public/Events'
 import { Gallery } from './pages/public/Gallery'
 import { Login } from './features/auth/Login'
 import { MemberDashboard } from './pages/portal/MemberDashboard'
+import { MyProfile } from './pages/portal/MyProfile'
+import { FamilyMembers } from './pages/portal/FamilyMembers'
+import { MembershipCard } from './pages/portal/MembershipCard'
+import { Events } from './pages/portal/Events'
+import { Volunteer } from './pages/portal/Volunteer'
+import { ChangeMobile } from './pages/portal/ChangeMobile'
+import { Notifications } from './pages/portal/Notifications'
+import { HelpContact } from './pages/portal/HelpContact'
 import { AdminDashboard } from './pages/admin/AdminDashboard'
 import { SuperAdminDashboard } from './pages/admin/SuperAdminDashboard'
 import { TransactionStatement } from './pages/portal/TransactionStatement'  
@@ -27,9 +34,11 @@ const ProtectedRoute = ({ children, allowedRoles }: { children: React.ReactNode,
 
   if (allowedRoles && user && !allowedRoles.includes(user.role)) {
     // If they have a role but it's not allowed for this route, bounce them to their respective default portal
-    if (user.role === 'SUPER_ADMIN' || user.role === 'superadmin') return <Navigate to="/superadmin" replace />
-    if (user.role === 'ADMIN' || user.role === 'admin') return <Navigate to="/admin" replace />
-    return <Navigate to="/portal" replace />
+    if (user.role === 'superadmin') return <Navigate to="/superadmin" replace />
+    if (user.role === 'admin') return <Navigate to="/admin" replace />
+    if (user.role === 'member') return <Navigate to="/portal" replace />
+    // If they are public/unauthorized for the role, send them back to home
+    return <Navigate to="/" replace />
   }
 
   return <>{children}</>
@@ -75,10 +84,18 @@ function App() {
           </ProtectedRoute>
         }>
           <Route index element={<MemberDashboard />} />
-          <Route path="profile" element={<Placeholder title="My Profile" />} />
+          <Route path="profile" element={<MyProfile />} />
+          <Route path="family" element={<FamilyMembers />} />
+          <Route path="card" element={<MembershipCard />} />
           <Route path="payments" element={<Placeholder title="My Payments" />} />
           <Route path="transactions" element={<TransactionStatement />} />
+          <Route path="events" element={<Events />} />
           <Route path="directory" element={<Placeholder title="Member Directory" />} />
+          <Route path="volunteer" element={<Volunteer />} />
+          <Route path="privacy" element={<Placeholder title="Privacy & Visibility" />} />
+          <Route path="change-mobile" element={<ChangeMobile />} />
+          <Route path="notifications" element={<Notifications />} />
+          <Route path="help" element={<HelpContact />} />
         </Route>
         
         {/* Admin Routes */}

@@ -19,7 +19,21 @@ export function Login() {
   const [success, setSuccess] = useState('')
   
   const navigate = useNavigate()
-  const login = useAuthStore((state) => state.login)
+  const { login, isAuthenticated, user } = useAuthStore()
+
+  React.useEffect(() => {
+    if (isAuthenticated && user) {
+      if (user.role === 'superadmin') {
+        navigate('/superadmin')
+      } else if (user.role === 'admin') {
+        navigate('/admin')
+      } else if (user.role === 'member' || user.role === 'MEMBER') {
+        navigate('/portal')
+      } else {
+        useAuthStore.getState().logout()
+      }
+    }
+  }, [isAuthenticated, user, navigate])
 
   const handleRequestOtp = async (e: React.FormEvent) => {
     e.preventDefault()
