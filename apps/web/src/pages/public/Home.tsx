@@ -1,9 +1,10 @@
-import React from "react"
 import { Button } from "../../components/ui/Button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/Card"
 import { ArrowRight, Heart } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 export function Home() {
+  const navigate = useNavigate()
   return (
     <div className="flex flex-col gap-16 pb-16">
       {/* Hero Section */}
@@ -20,14 +21,16 @@ export function Home() {
             A charitable organization dedicated to serving the pilgrims of Lord Amarnath Ji. Join hands in our mission of Annadana Seva.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button size="lg" className="bg-primary-900 hover:bg-primary-800 text-white font-medium px-8 h-12 text-base">
+            <Button onClick={() => navigate('/donate')}
+              size="lg" className="bg-primary-900 hover:bg-primary-800 text-white font-medium px-8 h-12 text-base">
+
               Donate Now
             </Button>
             <Button size="lg" variant="outline" className="border-primary-900 text-primary-900 font-medium px-8 h-12 text-base">
               Become a Member
             </Button>
           </div>
-          
+
           <div className="grid grid-cols-3 gap-6 pt-12 border-t border-sand-200">
             <div>
               <p className="text-3xl font-serif font-bold text-saffron-500">10M+</p>
@@ -98,7 +101,7 @@ export function Home() {
             View All <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[1, 2, 3].map((i) => (
             <Card key={i} className="hover:shadow-md transition-shadow">
@@ -127,7 +130,7 @@ export function Home() {
           <p className="text-primary-700 mb-12 max-w-2xl mx-auto">
             The dedicated team guiding the Amarnath Annadana Seva Samithi's mission.
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-8 md:gap-12">
             {['President', 'Vice President', 'Secretary', 'Treasurer', 'Joint Secretary'].map((title, i) => (
               <div key={i} className="flex flex-col items-center space-y-4">

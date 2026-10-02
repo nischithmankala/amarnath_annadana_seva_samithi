@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAuthStore } from '../../store/authStore'
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/Card'
 import { Users, FileText, CheckCircle } from 'lucide-react'

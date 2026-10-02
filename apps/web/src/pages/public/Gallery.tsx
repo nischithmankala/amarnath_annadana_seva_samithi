@@ -1,5 +1,3 @@
-import React from 'react'
-
 export function Gallery() {
   const images = [
     { id: 1, title: "Serving Meals", category: "Seva" },

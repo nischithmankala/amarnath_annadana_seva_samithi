@@ -5,6 +5,7 @@ import { Input } from "../../components/ui/Input"
 import { Heart } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { api } from "../../lib/api"
+import { DonationReceipt } from "../../components/receipt/DonationReceipt"
 
 export function Donate() {
   const { t } = useTranslation()
@@ -18,6 +19,7 @@ export function Donate() {
   })
   const [loading, setLoading] = useState(false)
   const [successReceipt, setSuccessReceipt] = useState<string | null>(null)
+  const [showReceiptModal, setShowReceiptModal] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,23 +67,58 @@ export function Donate() {
   }
 
   if (successReceipt) {
+    const donorFullName = `${formData.firstName} ${formData.lastName}`.trim() || 'Generous Donor'
     return (
-      <div className="container mx-auto px-4 py-12 flex justify-center">
-        <Card className="w-full max-w-xl text-center py-12">
-          <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-            <Heart className="w-8 h-8 text-green-500" />
+      <div className="container mx-auto px-4 py-12 flex flex-col items-center">
+        {showReceiptModal ? (
+          <div className="w-full flex flex-col items-center">
+            <DonationReceipt
+              receiptNumber={successReceipt}
+              donorName={donorFullName}
+              donorAddress="Door No. 12-34, Housing Board Colony\nSiddipet, Telangana - 502103"
+              donorPhone={formData.mobile || '+91 98765 43210'}
+              donorPan={formData.pan || ''}
+              date={new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+              paymentMethod="UPI / Online Transfer"
+              transactionId={`UPI/${Math.floor(100000000000 + Math.random() * 900000000000)}`}
+              items={[
+                {
+                  description: 'Amarnath Yatra Annadanam Seva Contribution',
+                  subtitle: '(Mahaprasadam)',
+                  qty: '1',
+                  rate: Number(amount) || 5000,
+                  amount: Number(amount) || 5000,
+                },
+              ]}
+              isModal={true}
+              onClose={() => setShowReceiptModal(false)}
+            />
           </div>
-          <CardTitle className="text-3xl text-primary-900 mb-4">{t('donate.successTitle', 'Donation Confirmed! 🙏')}</CardTitle>
-          <CardDescription className="text-lg">
-            {t('donate.successMsg', { amount, receipt: successReceipt, defaultValue: `Thank you for your generous contribution of ₹${amount}. Your receipt number is ${successReceipt}.` })}
-          </CardDescription>
-          <div className="mt-8 flex justify-center gap-4">
-            <Button variant="outline" onClick={() => window.print()}>{t('donate.downloadReceipt', 'Download Receipt')}</Button>
-            <Button onClick={() => { setSuccessReceipt(null); setAmount(''); setFormData({ firstName: '', lastName: '', email: '', mobile: '', pan: '' }) }} className="bg-saffron-500 hover:bg-saffron-400 text-white">
-              Donate Again
-            </Button>
-          </div>
-        </Card>
+        ) : (
+          <Card className="w-full max-w-xl text-center py-12">
+            <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+              <Heart className="w-8 h-8 text-green-500" />
+            </div>
+            <CardTitle className="text-3xl text-primary-900 mb-4">{t('donate.successTitle', 'Donation Confirmed! 🙏')}</CardTitle>
+            <CardDescription className="text-lg">
+              {t('donate.successMsg', { amount, receipt: successReceipt, defaultValue: `Thank you for your generous contribution of ₹${amount}. Your receipt number is ${successReceipt}.` })}
+            </CardDescription>
+            <div className="mt-8 flex justify-center flex-wrap gap-4">
+              <Button 
+                onClick={() => setShowReceiptModal(true)} 
+                className="bg-emerald-800 hover:bg-emerald-700 text-white font-bold"
+              >
+                📜 View &amp; Print Official Receipt
+              </Button>
+              <Button 
+                onClick={() => { setSuccessReceipt(null); setAmount(''); setFormData({ firstName: '', lastName: '', email: '', mobile: '', pan: '' }) }} 
+                className="bg-saffron-500 hover:bg-saffron-400 text-white"
+              >
+                Donate Again
+              </Button>
+            </div>
+          </Card>
+        )}
       </div>
     )
   }

@@ -5,6 +5,7 @@ import { config } from "./config";
 import authRouter from "./routes/auth";
 import membershipsRouter from "./routes/memberships";
 import donationsRouter from "./routes/donations";
+import memberRouter from "./routes/member";
 import { errorHandler } from "./middlewares/error";
 import crypto from "crypto";
 
@@ -31,6 +32,7 @@ app.get("/health", (req, res) => {
 app.use("/api/auth", authRouter);
 app.use("/api/memberships", membershipsRouter);
 app.use("/api/donations", donationsRouter);
+app.use("/api/member", memberRouter);
 
 // Centralized error handling
 app.use(errorHandler);

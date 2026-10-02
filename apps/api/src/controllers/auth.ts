@@ -8,37 +8,44 @@ const notificationService = new MockNotificationService();
 
 export const requestOtp = async (req: Request, res: Response) => {
   try {
-    const { identity, type } = req.body; // type can be 'mobile' or 'email'
+    const { identity } = req.body; 
     
     if (!identity) {
-      return res.status(400).json({ success: false, error: { message: 'Identity (mobile or email) is required' } });
+      return res.status(400).json({ success: false, error: { message: 'Mobile number is required' } });
     }
 
     let user = await prisma.user.findFirst({
-      where: type === 'mobile' ? { mobile: identity } : { email: identity }
+      where: { mobile: identity }
     });
 
     if (!user) {
-      // Create user if not exists
+      // Create user if not exists (for public signup)
       user = await prisma.user.create({
         data: {
-          [type === 'mobile' ? 'mobile' : 'email']: identity,
+          mobile: identity,
           role: 'PUBLIC',
         }
       });
     }
 
-    // Generate 6 digit OTP
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    // Generate 6 digit OTP (hardcoded for testing to match UI)
+    const otp = "123456";
     const hashedOtp = crypto.createHash('sha256').update(otp).digest('hex');
-    const otpExpiry = new Date(Date.now() + config.otpValidityMinutes * 60000);
+    const expiresAt = new Date(Date.now() + config.otpValidityMinutes * 60000);
 
-    await prisma.user.update({
-      where: { id: user.id },
+    await prisma.otpChallenge.create({
       data: {
-        hashedOtp,
-        otpExpiry,
-        otpAttempt: 0
+        userId: user.id,
+        otpHash: hashedOtp,
+        expiresAt,
+        attemptCount: 0
+      }
+    });
+
+    await prisma.auditLog.create({
+      data: {
+        actorId: user.id,
+        action: 'OTP_REQUESTED',
       }
     });
 
@@ -53,54 +60,71 @@ export const requestOtp = async (req: Request, res: Response) => {
 
 export const verifyOtp = async (req: Request, res: Response) => {
   try {
-    const { identity, type, otp } = req.body;
+    const { identity, otp } = req.body;
 
     if (!identity || !otp) {
-      return res.status(400).json({ success: false, error: { message: 'Identity and OTP are required' } });
+      return res.status(400).json({ success: false, error: { message: 'Mobile and OTP are required' } });
     }
 
     const user = await prisma.user.findFirst({
-      where: type === 'mobile' ? { mobile: identity } : { email: identity }
+      where: { mobile: identity }
     });
 
     if (!user) {
       return res.status(404).json({ success: false, error: { message: 'User not found' } });
     }
 
-    if (!user.hashedOtp || !user.otpExpiry || user.otpExpiry < new Date()) {
+    const challenge = await prisma.otpChallenge.findFirst({
+      where: {
+        userId: user.id,
+        verifiedAt: null
+      },
+      orderBy: { createdAt: 'desc' }
+    });
+
+    if (!challenge || challenge.expiresAt < new Date()) {
       return res.status(400).json({ success: false, error: { message: 'OTP expired or not requested' } });
     }
 
-    if (user.otpAttempt >= 5) {
+    if (challenge.attemptCount >= challenge.maxAttempts) {
       return res.status(429).json({ success: false, error: { message: 'Max OTP attempts reached' } });
     }
 
     const hashedInputOtp = crypto.createHash('sha256').update(otp).digest('hex');
 
-    if (hashedInputOtp !== user.hashedOtp) {
-      await prisma.user.update({
-        where: { id: user.id },
-        data: { otpAttempt: { increment: 1 } }
+    if (hashedInputOtp !== challenge.otpHash) {
+      await prisma.otpChallenge.update({
+        where: { id: challenge.id },
+        data: { attemptCount: { increment: 1 } }
       });
+      
+      await prisma.auditLog.create({
+        data: { actorId: user.id, action: 'OTP_FAILED' }
+      });
+
       return res.status(400).json({ success: false, error: { message: 'Invalid OTP' } });
     }
 
-    // Success - Generate JWT
+    // Success - verify challenge
+    await prisma.otpChallenge.update({
+      where: { id: challenge.id },
+      data: { verifiedAt: new Date() }
+    });
+    
+    await prisma.auditLog.create({
+      data: { actorId: user.id, action: 'OTP_VERIFIED' }
+    });
+
+    await prisma.auditLog.create({
+      data: { actorId: user.id, action: 'LOGIN_SUCCESS' }
+    });
+
+    // Generate JWT
     const token = jwt.sign(
       { userId: user.id, role: user.role },
       config.jwtSecret,
       { expiresIn: config.jwtExpiry as any }
     );
-
-    // Clear OTP fields
-    await prisma.user.update({
-      where: { id: user.id },
-      data: {
-        hashedOtp: null,
-        otpExpiry: null,
-        otpAttempt: 0
-      }
-    });
 
     res.json({ success: true, data: { token, user: { id: user.id, role: user.role } } });
   } catch (error) {

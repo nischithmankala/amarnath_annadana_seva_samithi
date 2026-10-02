@@ -9,23 +9,21 @@ export const createMembershipIntent = async (req: Request, res: Response) => {
     const fee = 152000;
 
     const user = await prisma.user.upsert({
-      where: { mobile: mobile || email },
+      where: { mobile },
       update: {},
       create: {
         mobile,
-        email,
         role: 'MEMBER'
       }
     });
 
-    const memberId = `MEM-${Math.floor(1000 + Math.random() * 9000)}`;
+    const tempMemberId = `TEMP-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
 
     const member = await prisma.member.create({
       data: {
-        memberId,
+        memberId: tempMemberId,
         userId: user.id,
         name,
-        mobile,
         email,
         address,
         city,
@@ -62,7 +60,7 @@ export const createMembershipIntent = async (req: Request, res: Response) => {
 
     const gatewayOrder = await paymentGateway.createOrder(fee, transactionRef, 'Membership Fee');
 
-    res.status(201).json({ success: true, data: { transactionRef, gatewayOrder, memberId } });
+    res.status(201).json({ success: true, data: { transactionRef, gatewayOrder } });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: { message: 'Internal server error' } });
@@ -102,18 +100,37 @@ export const verifyMembershipPayment = async (req: Request, res: Response) => {
     data: { receiptNumber }
   });
 
+  let finalMemberId = null;
+
   if (payment.memberId) {
-    await prisma.member.update({
-      where: { id: payment.memberId },
-      data: { status: 'APPROVED' }
-    });
+    const member = await prisma.member.findUnique({ where: { id: payment.memberId } });
+    if (member && member.status === 'PENDING') {
+      finalMemberId = `AASS-${new Date().getFullYear()}${Math.floor(1000 + Math.random() * 9000)}`;
+      
+      await prisma.member.update({
+        where: { id: payment.memberId },
+        data: { 
+          status: 'APPROVED',
+          memberId: finalMemberId,
+          joiningDate: new Date()
+        }
+      });
+      
+      await prisma.virtualMemberCard.create({
+        data: {
+          memberId: payment.memberId,
+          status: 'ACTIVE'
+        }
+      });
+    }
   }
 
   res.json({
     success: true,
     data: {
       message: 'Payment verified and membership approved',
-      receiptNumber
+      receiptNumber,
+      memberId: finalMemberId
     }
   });
 };

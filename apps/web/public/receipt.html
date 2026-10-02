@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amarnath Annadana Seva Samithi - Donation Receipt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   PAGE & PRINT SPECIFICATIONS (EXACT A4: 210mm x 297mm)
+========================================================= */
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #23272b;
+    background: radial-gradient(circle at 50% 10%, #343a40 0%, #1a1d20 100%);
+    font-family: 'Lora', Georgia, "Times New Roman", serif;
+    color: #173d2b;
+    min-height: 100vh;
+    padding: 20px 10px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Screen Actions Toolbar */
+.toolbar {
+    width: 210mm;
+    max-width: 100%;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    border: 1.5px solid #d4af37;
+    z-index: 100;
+}
+
+.toolbar-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #075b36;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toolbar-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    cursor: pointer;
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #075b36 0%, #0d7a49 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(7, 91, 54, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #064b2d 0%, #0a663d 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(7, 91, 54, 0.4);
+}
+
+.btn-gold {
+    background: linear-gradient(135deg, #dca433 0%, #f7d572 50%, #c99321 100%);
+    color: #173d2b;
+    border: 1px solid #b8860b;
+    box-shadow: 0 2px 6px rgba(184, 134, 11, 0.25);
+}
+
+.btn-gold:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   A4 RECEIPT SHEET (210mm x 297mm)
+========================================================= */
+.receipt {
+    width: 210mm;
+    min-height: 297mm;
+    max-height: 297mm;
+    height: 297mm;
+    position: relative;
+    overflow: hidden;
+    background-color: #fffdf5;
+    background-image: 
+        radial-gradient(ellipse at 50% 0%, rgba(255, 250, 235, 0.8) 0%, transparent 75%),
+        linear-gradient(to bottom, #fdfbf5 0%, #fffdf8 40%, #fefcf3 100%);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    padding: 7mm 9mm 6mm 9mm;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Large Faded Logo Watermark in Background */
+.receipt::before {
+    content: "";
+    position: absolute;
+    width: 140mm;
+    height: 140mm;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    background-image: url("logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.085;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Triple Gold Decorative Outer Border */
+.receipt::after {
+    content: "";
+    position: absolute;
+    top: 3.5mm;
+    left: 3.5mm;
+    right: 3.5mm;
+    bottom: 3.5mm;
+    border: 2px solid #b77b15;
+    box-shadow:
+        inset 0 0 0 1.5px #fbf0d0,
+        inset 0 0 0 3.8px #cf972d,
+        inset 0 0 0 5.2px #fbf0d0;
+    pointer-events: none;
+    z-index: 25;
+}
+
+/* Golden Corner Symbols */
+.corner {
+    position: absolute;
+    font-size: 24px;
+    color: #b77b15;
+    z-index: 30;
+    line-height: 1;
+    user-select: none;
+}
+.corner.tl { top: 4.8mm; left: 5.2mm; }
+.corner.tr { top: 4.8mm; right: 5.2mm; }
+.corner.bl { bottom: 4.8mm; left: 5.2mm; }
+.corner.br { bottom: 4.8mm; right: 5.2mm; }
+
+/* Content Wrapper */
+.content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* =========================================================
+   TOP HEADER (HIMALAYAN BANNER + LOGO + SAMITHI INFO)
+========================================================= */
+.header-wrapper {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1.5px solid #c79633;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    background-image: url('header-bg.jpg');
+    background-size: cover;
+    background-position: center top;
+    margin-bottom: 2mm;
+}
+
+.header-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.72) 45%, rgba(255, 255, 255, 0.55) 100%);
+    pointer-events: none;
+}
+
+.header {
+    position: relative;
+    padding: 2.8mm 3mm 2.8mm 3mm;
+    display: grid;
+    grid-template-columns: 36mm 1fr 28mm;
+    align-items: center;
+    gap: 2mm;
+    background: transparent;
+}
+
+.header-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.header-logo {
+    width: 35mm;
+    height: 35mm;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+    background: transparent;
+}
+
+.header-text-container {
+    text-align: center;
+}
+
+.organization {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: #065132;
+    letter-spacing: 0.8px;
+    line-height: 1.15;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.subtitle {
+    margin-top: 1mm;
+    font-size: 13px;
+    font-weight: 700;
+    color: #173d2b;
+    letter-spacing: 0.3px;
+}
+
+.subtitle .reg {
+    color: #7b4b12;
+}
+
+.address-block {
+    margin-top: 1mm;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #244133;
+    font-weight: 500;
+}
+
+.address-block .contact-line {
+    font-weight: 600;
+    color: #0b5735;
+    margin-top: 0.3mm;
+}
+
+.header-right-trishul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.trishul-svg {
+    width: 26mm;
+    height: 30mm;
+}
+
+/* =========================================================
+   DEVOTIONAL SLOGAN
+========================================================= */
+.slogan-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 1.5mm 0 2mm;
+}
+
+.slogan-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c79633, #c79633);
+}
+
+.slogan-line.right {
+    background: linear-gradient(to left, transparent, #c79633, #c79633);
+}
+
+.slogan-ornament {
+    color: #c79633;
+    font-size: 13px;
+}
+
+.slogan-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17.5px;
+    font-weight: 700;
+    color: #9d261b;
+    letter-spacing: 1.5px;
+}
+
+/* =========================================================
+   DONATION RECEIPT TITLE BANNER
+========================================================= */
+.receipt-title-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.5mm;
+}
+
+.receipt-title {
+    width: 68%;
+    padding: 2.5mm 6mm;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #075b36 0%, #0e7345 50%, #075b36 100%);
+    border: 2px solid #dca433;
+    border-radius: 20px;
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.2),
+        inset 0 0 0 1.2px #fde7a8,
+        inset 0 2px 3px rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+
+.receipt-title .flourish {
+    color: #f7d572;
+    font-size: 14px;
+}
+
+/* =========================================================
+   DONOR DETAILS & RECEIPT METADATA
+========================================================= */
+.info-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5mm;
+    margin-bottom: 2.5mm;
+}
+
+.info-col-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-badge-container {
+    margin-bottom: 1.5mm;
+}
+
+.payment-badge {
+    display: inline-block;
+    padding: 1.5mm 6mm;
+    background: linear-gradient(135deg, #dca433 0%, #f8db7b 50%, #c99321 100%);
+    color: #0c3e23;
+    border-radius: 18px;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    border: 1px solid #b77b15;
+    box-shadow: 0 2px 4px rgba(183, 123, 21, 0.2);
+}
+
+.donor-pill {
+    display: inline-block;
+    padding: 1.4mm 5mm;
+    margin-bottom: 1.5mm;
+    background: linear-gradient(to right, #075b36, #09683e);
+    color: #ffffff;
+    border-radius: 12px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    border: 1px solid #c99a38;
+}
+
+.donor-card {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #d8b868;
+    border-radius: 5px;
+    padding: 2.2mm 3.2mm;
+    line-height: 1.45;
+}
+
+.donor-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #064b2d;
+    margin-bottom: 0.8mm;
+}
+
+.donor-address {
+    font-size: 11.5px;
+    color: #213a2c;
+    line-height: 1.4;
+}
+
+.donor-phone {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #173d2b;
+    margin-top: 1mm;
+}
+
+.info-col-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.receipt-meta-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1.8mm;
+    font-size: 12px;
+}
+
+.receipt-meta-table td {
+    padding: 0.8mm 0;
+    vertical-align: middle;
+}
+
+.receipt-meta-table .meta-label {
+    font-weight: 700;
+    color: #075b36;
+    width: 38%;
+}
+
+.receipt-meta-table .meta-colon {
+    width: 6%;
+    font-weight: bold;
+    color: #444;
+}
+
+.receipt-meta-table .meta-val {
+    color: #172f24;
+    font-weight: 600;
+    width: 56%;
+}
+
+.meta-highlight {
+    font-weight: 700;
+    color: #064b2d;
+}
+
+/* =========================================================
+   DONATION ITEMS TABLE
+========================================================= */
+.donation-table-wrapper {
+    margin-bottom: 2mm;
+}
+
+.donation-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.92);
+    border: 2px solid #b77b15;
+}
+
+.donation-table th {
+    background: linear-gradient(to bottom, #075b36 0%, #05482b 100%);
+    color: #ffffff;
+    padding: 2.8mm 3mm;
+    border: 1px solid #c99a38;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+}
+
+.donation-table td {
+    padding: 2.8mm 3.2mm;
+    border: 1px solid #d8bb72;
+    font-size: 12px;
+    color: #1b3528;
+    vertical-align: middle;
+}
+
+.donation-table tbody tr:nth-child(even) {
+    background: rgba(249, 244, 226, 0.7);
+}
+
+.desc-main {
+    font-weight: 600;
+    color: #0e3d23;
+}
+
+.desc-sub {
+    font-size: 11px;
+    color: #555;
+    font-style: italic;
+}
+
+.amount {
+    text-align: right;
+    font-weight: 700;
+    color: #173d2b;
+}
+
+.center {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* =========================================================
+   SUBTOTAL & TOTAL BOX
+========================================================= */
+.total-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2mm;
+}
+
+.total-container {
+    width: 46%;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.2mm 3.5mm;
+    border: 1.2px solid #d4a946;
+    border-bottom: none;
+    background: #fdf5df;
+    font-size: 13px;
+    color: #173d2b;
+}
+
+.total-final {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.6mm 3.5mm;
+    background: linear-gradient(to right, #075b36 0%, #0a6b3e 100%);
+    color: #ffea9f;
+    border: 1.8px solid #b77b15;
+    font-family: 'Cinzel', serif;
+    font-size: 14.5px;
+    font-weight: 800;
+}
+
+.total-final-val {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* =========================================================
+   BLESSING, FOOTER & BOTTOM POOJA ART
+========================================================= */
+.bottom-section {
+    position: relative;
+}
+
+.blessing {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    font-style: italic;
+    color: #075b36;
+    line-height: 1.35;
+    margin-bottom: 1.2mm;
+}
+
+.blessing-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.2mm;
+}
+
+.blessing-ornament .line {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c79633);
+}
+
+.blessing-ornament .line.right {
+    background: linear-gradient(to left, transparent, #c79633);
+}
+
+.blessing-symbol {
+    color: #b77b15;
+    font-size: 16px;
+}
+
+.footer-text {
+    text-align: center;
+    font-size: 10.5px;
+    line-height: 1.45;
+    color: #264132;
+    font-weight: 500;
+    margin-bottom: 1.5mm;
+}
+
+.footer-text strong {
+    color: #075b36;
+    font-weight: 700;
+}
+
+.tax-exempt-badge {
+    display: inline-block;
+    color: #5a3508;
+    font-weight: 600;
+}
+
+/* Bottom Pooja Lamp & Annadanam Prasad Bowl Art */
+.bottom-decor-wrapper {
+    position: relative;
+    width: 100%;
+    height: 34mm;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.bottom-decor-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+    opacity: 0.96;
+}
+
+/* =========================================================
+   LIVE EDITOR MODAL / DRAWER
+========================================================= */
+.editor-modal {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 420px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.3);
+    z-index: 2000;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.editor-modal.open {
+    right: 0;
+}
+
+.editor-header {
+    padding: 16px 20px;
+    background: #075b36;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editor-body {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #075b36;
+    outline: none;
+}
+
+/* =========================================================
+   PRINT MEDIA RULES (PERFECT EXACT 1 PAGE A4)
+========================================================= */
+@media print {
+    html, body {
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .toolbar, .editor-modal, .edit-btn {
+        display: none !important;
+    }
+
+    .receipt {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+    }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 850px) {
+    body {
+        padding: 10px 5px;
+    }
+    .toolbar {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .receipt {
+        width: 100%;
+        height: auto;
+        padding: 6mm;
+    }
+    .organization {
+        font-size: 16px;
+    }
+    .info-section {
+        grid-template-columns: 1fr;
+        gap: 3mm;
+    }
+    .total-container {
+        width: 100%;
+    }
+    .receipt-title {
+        width: 95%;
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP ACTIONS TOOLBAR (Hidden in Print) -->
+<div class="toolbar">
+    <div class="toolbar-title">
+        <span>🔱</span>
+        <span>Amarnath Annadana Seva Samithi — Official Receipt</span>
+    </div>
+    <div class="toolbar-actions">
+        <button class="btn btn-primary" onclick="window.print()">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/></svg>
+            Print Receipt / Save PDF
+        </button>
+        <button class="btn btn-gold edit-btn" onclick="toggleEditor()">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/></svg>
+            Edit Receipt Data
+        </button>
+    </div>
+</div>
+
+<!-- =========================================================
+     A4 DONATION RECEIPT
+========================================================= -->
+<div class="receipt" id="receiptDoc">
+
+    <!-- Ornate Golden Corners -->
+    <div class="corner tl">❖</div>
+    <div class="corner tr">❖</div>
+    <div class="corner bl">❖</div>
+    <div class="corner br">❖</div>
+
+    <div class="content">
+
+        <!-- ================= TOP SECTION ================= -->
+        <div>
+            <!-- Header with Mountain overlay & Samithi Details -->
+            <div class="header-wrapper">
+                <div class="header-bg-overlay"></div>
+                <div class="header">
+                    <!-- Left Logo -->
+                    <div class="header-logo-container">
+                        <img src="logo.png" alt="Amarnath Annadana Seva Samithi" class="header-logo" id="r_logo">
+                    </div>
+
+                    <!-- Center Info -->
+                    <div class="header-text-container">
+                        <div class="organization" id="r_orgName">AMARNATH ANNADANA SEVA SAMITHI</div>
+                        <div class="subtitle">
+                            <span id="r_unit">Siddipet Unit</span> &nbsp;|&nbsp; <span class="reg" id="r_reg">Reg. No: 1234/2020</span>
+                        </div>
+                        <div class="address-block">
+                            <div id="r_orgAddress">Main Road, Siddipet, Telangana - 502103</div>
+                            <div class="contact-line">
+                                Phone: <span id="r_orgPhone">+91 98765 43210</span> &nbsp;|&nbsp; Email: <span id="r_orgEmail">contact@amarnathannadana.org</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Trishul & Bells Motif -->
+                    <div class="header-right-trishul">
+                        <svg class="trishul-svg" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Golden Trishul -->
+                            <path d="M50 5 L50 115" stroke="#b77b15" stroke-width="4.5" stroke-linecap="round"/>
+                            <path d="M50 5 L42 22 C45 20 55 20 58 22 Z" fill="#b77b15"/>
+                            <path d="M30 35 C20 45 15 25 22 15 C28 28 42 35 50 35 C58 35 72 28 78 15 C85 25 80 45 70 35 C62 48 55 48 50 48 C45 48 38 48 30 35 Z" fill="#cf972d" stroke="#b77b15" stroke-width="1.5"/>
+                            <circle cx="50" cy="55" r="4" fill="#b77b15"/>
+                            <!-- Damru -->
+                            <path d="M38 60 L62 72 L38 72 L62 60 Z" fill="#dca433" stroke="#b77b15" stroke-width="1.5"/>
+                            <circle cx="50" cy="66" r="2.5" fill="#9d261b"/>
+                            <!-- Orange Flag -->
+                            <path d="M50 68 C62 70 75 64 85 68 C78 78 65 74 50 82 Z" fill="#e65100"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= DEVOTIONAL SLOGAN ================= -->
+            <div class="slogan-container">
+                <div class="slogan-line"></div>
+                <div class="slogan-ornament">❖</div>
+                <div class="slogan-text">॥ अन्नदानं महादानम् ॥</div>
+                <div class="slogan-ornament">❖</div>
+                <div class="slogan-line right"></div>
+            </div>
+
+            <!-- ================= RECEIPT TITLE BANNER ================= -->
+            <div class="receipt-title-wrapper">
+                <div class="receipt-title">
+                    <span class="flourish">❖</span>
+                    <span>DONATION RECEIPT</span>
+                    <span class="flourish">❖</span>
+                </div>
+            </div>
+
+            <!-- ================= DONOR & RECEIPT DETAILS ================= -->
+            <div class="info-section">
+                <!-- Left: Donor Details -->
+                <div class="info-col-left">
+                    <div class="payment-badge-container">
+                        <div class="payment-badge">PAYMENT RECEIVED</div>
+                    </div>
+                    <div>
+                        <div class="donor-pill">Donor Details:</div>
+                        <div class="donor-card">
+                            <div class="donor-name" id="r_donorName">Sri Ramesh Kumar</div>
+                            <div class="donor-address" id="r_donorAddress">
+                                Door No. 12-34, Housing Board Colony<br>
+                                Siddipet, Telangana - 502103
+                            </div>
+                            <div class="donor-phone" id="r_donorPhone">Phone: +91 91234 56789</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Receipt Metadata -->
+                <div class="info-col-right">
+                    <table class="receipt-meta-table">
+                        <tr>
+                            <td class="meta-label">Receipt No</td>
+                            <td class="meta-colon">:</td>
+                            <td class="meta-val meta-highlight" id="r_receiptNo">AASS-SDPT-2026-001</td>
+                        </tr>
+                        <tr>
+                            <td class="meta-label">Date</td>
+                            <td class="meta-colon">:</td>
+                            <td class="meta-val" id="r_receiptDate">September 28, 2026</td>
+                        </tr>
+                        <tr>
+                            <td class="meta-label">Payment Method</td>
+                            <td class="meta-colon">:</td>
+                            <td class="meta-val" id="r_paymentMethod">UPI / Online Transfer</td>
+                        </tr>
+                        <tr>
+                            <td class="meta-label">Transaction ID</td>
+                            <td class="meta-colon">:</td>
+                            <td class="meta-val" id="r_transId">UPI/625983710294</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ================= DONATION TABLE ================= -->
+            <div class="donation-table-wrapper">
+                <table class="donation-table" id="donationTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 52%; text-align: left;">SEVA / DONATION DESCRIPTION</th>
+                            <th style="width: 14%; text-align: center;">QTY / DAYS</th>
+                            <th style="width: 16%; text-align: right;">RATE</th>
+                            <th style="width: 18%; text-align: right;">AMOUNT (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="r_tableBody">
+                        <tr>
+                            <td>
+                                <div class="desc-main">Amarnath Yatra Annadanam Seva Contribution</div>
+                                <div class="desc-sub">(Mahaprasadam)</div>
+                            </td>
+                            <td class="center">1</td>
+                            <td class="amount">₹5,000.00</td>
+                            <td class="amount">₹5,000.00</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="desc-main">Special Meal Sponsorship (Nitya Annadanam)</div>
+                            </td>
+                            <td class="center">1 Day</td>
+                            <td class="amount">₹2,500.00</td>
+                            <td class="amount">₹2,500.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ================= TOTAL SECTION ================= -->
+            <div class="total-section">
+                <div class="total-container">
+                    <div class="total-row">
+                        <strong>Subtotal:</strong>
+                        <strong id="r_subtotal">₹7,500.00</strong>
+                    </div>
+                    <div class="total-final">
+                        <span>TOTAL RECEIVED:</span>
+                        <span class="total-final-val" id="r_total">₹7,500.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= BLESSING, FOOTER & BOTTOM POOJA ART ================= -->
+        <div class="bottom-section">
+            <div class="blessing">
+                May Lord Shiva Bless You &amp; Your Family<br>
+                with Health &amp; Happiness!
+            </div>
+
+            <div class="blessing-ornament">
+                <div class="line"></div>
+                <div class="blessing-symbol">🔱</div>
+                <div class="line right"></div>
+            </div>
+
+            <div class="footer-text">
+                <strong>Thank you for your generous contribution towards Annadana Seva.</strong><br>
+                <span class="tax-exempt-badge">All donations are exempt under 80G of Income Tax Act.</span>
+            </div>
+
+            <!-- Bottom Pooja Lamp & Annadanam Prasad Bowl Art -->
+            <div class="bottom-decor-wrapper">
+                <img src="footer-bg.jpg" alt="Pooja Diya and Annadanam Mahaprasadam Rice" class="bottom-decor-img">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- =========================================================
+     LIVE EDITOR MODAL / DRAWER
+========================================================= -->
+<div class="editor-modal" id="editorModal">
+    <div class="editor-header">
+        <h3 style="font-size: 15px;">Customize Receipt Details</h3>
+        <button onclick="toggleEditor()" style="background:none; border:none; color:white; font-size:22px; cursor:pointer;">&times;</button>
+    </div>
+    <div class="editor-body">
+        <div class="form-group">
+            <label>Donor Name</label>
+            <input type="text" id="inp_donorName" value="Sri Ramesh Kumar" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Donor Address</label>
+            <textarea id="inp_donorAddress" rows="3" oninput="updateReceipt()">Door No. 12-34, Housing Board Colony&#10;Siddipet, Telangana - 502103</textarea>
+        </div>
+        <div class="form-group">
+            <label>Donor Phone</label>
+            <input type="text" id="inp_donorPhone" value="+91 91234 56789" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Receipt Number</label>
+            <input type="text" id="inp_receiptNo" value="AASS-SDPT-2026-001" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Receipt Date</label>
+            <input type="text" id="inp_receiptDate" value="September 28, 2026" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Payment Method</label>
+            <input type="text" id="inp_paymentMethod" value="UPI / Online Transfer" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Transaction ID / Ref</label>
+            <input type="text" id="inp_transId" value="UPI/625983710294" oninput="updateReceipt()">
+        </div>
+
+        <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+        <h4 style="font-size: 13px; color:#075b36; margin-bottom:10px;">Donation Items</h4>
+
+        <div class="form-group">
+            <label>Item 1 Description</label>
+            <input type="text" id="inp_item1_desc" value="Amarnath Yatra Annadanam Seva Contribution" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Item 1 Subtitle / Notes</label>
+            <input type="text" id="inp_item1_sub" value="(Mahaprasadam)" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Item 1 Qty / Days</label>
+            <input type="text" id="inp_item1_qty" value="1" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Item 1 Amount (₹)</label>
+            <input type="number" id="inp_item1_amt" value="5000" oninput="updateReceipt()">
+        </div>
+
+        <div class="form-group">
+            <label>Item 2 Description</label>
+            <input type="text" id="inp_item2_desc" value="Special Meal Sponsorship (Nitya Annadanam)" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Item 2 Qty / Days</label>
+            <input type="text" id="inp_item2_qty" value="1 Day" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Item 2 Amount (₹)</label>
+            <input type="number" id="inp_item2_amt" value="2500" oninput="updateReceipt()">
+        </div>
+
+        <div style="margin-top: 20px;">
+            <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="window.print()">
+                Print / Save PDF Now
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleEditor() {
+    const modal = document.getElementById('editorModal');
+    modal.classList.toggle('open');
+}
+
+function formatCurrency(num) {
+    return '₹' + Number(num).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function updateReceipt() {
+    document.getElementById('r_donorName').innerText = document.getElementById('inp_donorName').value;
+    document.getElementById('r_donorAddress').innerHTML = document.getElementById('inp_donorAddress').value.replace(/\n/g, '<br>');
+    document.getElementById('r_donorPhone').innerText = 'Phone: ' + document.getElementById('inp_donorPhone').value;
+    document.getElementById('r_receiptNo').innerText = document.getElementById('inp_receiptNo').value;
+    document.getElementById('r_receiptDate').innerText = document.getElementById('inp_receiptDate').value;
+    document.getElementById('r_paymentMethod').innerText = document.getElementById('inp_paymentMethod').value;
+    document.getElementById('r_transId').innerText = document.getElementById('inp_transId').value;
+
+    const item1Desc = document.getElementById('inp_item1_desc').value;
+    const item1Sub = document.getElementById('inp_item1_sub').value;
+    const item1Qty = document.getElementById('inp_item1_qty').value;
+    const item1Amt = parseFloat(document.getElementById('inp_item1_amt').value) || 0;
+
+    const item2Desc = document.getElementById('inp_item2_desc').value;
+    const item2Qty = document.getElementById('inp_item2_qty').value;
+    const item2Amt = parseFloat(document.getElementById('inp_item2_amt').value) || 0;
+
+    const total = item1Amt + item2Amt;
+
+    let rowsHtml = '';
+    if (item1Desc) {
+        rowsHtml += `<tr>
+            <td>
+                <div class="desc-main">${item1Desc}</div>
+                ${item1Sub ? `<div class="desc-sub">${item1Sub}</div>` : ''}
+            </td>
+            <td class="center">${item1Qty}</td>
+            <td class="amount">${formatCurrency(item1Amt)}</td>
+            <td class="amount">${formatCurrency(item1Amt)}</td>
+        </tr>`;
+    }
+
+    if (item2Desc) {
+        rowsHtml += `<tr>
+            <td>
+                <div class="desc-main">${item2Desc}</div>
+            </td>
+            <td class="center">${item2Qty}</td>
+            <td class="amount">${formatCurrency(item2Amt)}</td>
+            <td class="amount">${formatCurrency(item2Amt)}</td>
+        </tr>`;
+    }
+
+    document.getElementById('r_tableBody').innerHTML = rowsHtml;
+    document.getElementById('r_subtotal').innerText = formatCurrency(total);
+    document.getElementById('r_total').innerText = formatCurrency(total);
+}
+</script>
+
+</body>
+</html>

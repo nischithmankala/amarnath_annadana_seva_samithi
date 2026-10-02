@@ -11,8 +11,11 @@ import { Login } from './features/auth/Login'
 import { MemberDashboard } from './pages/portal/MemberDashboard'
 import { AdminDashboard } from './pages/admin/AdminDashboard'
 import { SuperAdminDashboard } from './pages/admin/SuperAdminDashboard'
+import { TransactionStatement } from './pages/portal/TransactionStatement'  
 import { useAuthStore } from './store/authStore'
 import { Navigate } from 'react-router-dom'
+
+import { ReceiptViewer } from './pages/public/ReceiptViewer'
 
 // Protected Route Guard
 const ProtectedRoute = ({ children, allowedRoles }: { children: React.ReactNode, allowedRoles?: string[] }) => {
@@ -24,8 +27,8 @@ const ProtectedRoute = ({ children, allowedRoles }: { children: React.ReactNode,
 
   if (allowedRoles && user && !allowedRoles.includes(user.role)) {
     // If they have a role but it's not allowed for this route, bounce them to their respective default portal
-    if (user.role === 'superadmin') return <Navigate to="/superadmin" replace />
-    if (user.role === 'admin') return <Navigate to="/admin" replace />
+    if (user.role === 'SUPER_ADMIN' || user.role === 'superadmin') return <Navigate to="/superadmin" replace />
+    if (user.role === 'ADMIN' || user.role === 'admin') return <Navigate to="/admin" replace />
     return <Navigate to="/portal" replace />
   }
 
@@ -52,6 +55,13 @@ function App() {
           <Route path="/contact" element={<Placeholder title="Contact Us" />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/join" element={<Placeholder title="Join as Member Flow" />} />
+          <Route path="/sponsors" element={<Placeholder title="Sponsors" />} />
+          <Route path="/member-login" element={<Login />} />
+          <Route path="/admin-login" element={<Login />} />
+          <Route path="/superadmin-login" element={<Login />} />
+          {/* <Route path="/donate" element={<Donate />} /> */}
+          <Route path="/receipt" element={<ReceiptViewer />} />
+          <Route path="/receipt/:id" element={<ReceiptViewer />} />
           <Route path="/volunteer" element={<Placeholder title="Volunteer Flow" />} />
         </Route>
 
@@ -60,19 +70,20 @@ function App() {
 
         {/* Portal Routes (Member only usually, but admin/superadmin can access their own versions) */}
         <Route path="/portal" element={
-          <ProtectedRoute allowedRoles={['member']}>
+          <ProtectedRoute allowedRoles={['MEMBER', 'member']}>
             <PortalLayout />
           </ProtectedRoute>
         }>
           <Route index element={<MemberDashboard />} />
           <Route path="profile" element={<Placeholder title="My Profile" />} />
           <Route path="payments" element={<Placeholder title="My Payments" />} />
+          <Route path="transactions" element={<TransactionStatement />} />
           <Route path="directory" element={<Placeholder title="Member Directory" />} />
         </Route>
         
         {/* Admin Routes */}
         <Route path="/admin" element={
-          <ProtectedRoute allowedRoles={['admin']}>
+          <ProtectedRoute allowedRoles={['ADMIN', 'admin']}>
             <PortalLayout />
           </ProtectedRoute>
         }>
@@ -81,7 +92,7 @@ function App() {
 
         {/* Super Admin Routes */}
         <Route path="/superadmin" element={
-          <ProtectedRoute allowedRoles={['superadmin']}>
+          <ProtectedRoute allowedRoles={['SUPER_ADMIN', 'superadmin']}>
             <PortalLayout />
           </ProtectedRoute>
         }>

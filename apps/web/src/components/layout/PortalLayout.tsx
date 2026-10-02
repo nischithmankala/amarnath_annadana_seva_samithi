@@ -1,7 +1,5 @@
-import React from "react"
 import { Outlet, Link, useNavigate } from "react-router-dom"
-import { Button } from "../ui/Button"
-import { LogOut, Home, User, Settings, CreditCard, Users, Shield } from "lucide-react"
+import { LogOut, Home, User, CreditCard, Users, Shield } from "lucide-react"
 import { useAuthStore } from "../../store/authStore"
 
 export function PortalLayout() {

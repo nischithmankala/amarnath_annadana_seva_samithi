@@ -1,5 +1,4 @@
-import React from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/Card"
+import { Card } from "../../components/ui/Card"
 import { Calendar, MapPin } from "lucide-react"
 
 export function Events() {
